@@ -12,19 +12,19 @@ data = {
 
 data = {
     "endereco 1": {
-        "CEP": "17245-452",
+        "CEP": 17245452,
         "Rua": "Governador Lopes",
         "Numero": 235,
         "Complemento": "ap 56"
     },
     "endereco 2": {
-        "CEP": "95325-754",
+        "CEP": 95325754,
         "Rua": "Maria do ceu",
         "Numero": 689,
         "Complemento": "ap 23"
     },
     "endereco 3": {
-        "CEP": "36245-965",
+        "CEP": 36245965,
         "Rua": "Machado de assis",
         "Numero": 364,
         "Complemento": 0        
