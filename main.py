@@ -12,8 +12,13 @@ def read_item(cep_id: int):
         endereco = json.load(f) 
     endereco = dict(endereco) 
 
-    if endereco["endereco 3"["CEP"]] == cep_id:       
-        return {"CEP buscado": cep_id, "Endereco encontrado": endereco["endereco 3"]}
-    else:
-        return "CEP não enconrado"
+    for end in endereco.values():
+        for key, item in end.items():
+                
+            if item == cep_id:   
+             
+                return {"CEP": item, "Endereço": end["Rua"], "Numero": end["Numero"], 
+                        "Complemento": end["Complemento"]}
+            
+    return {"CEP não enconrado": cep_id}
       
