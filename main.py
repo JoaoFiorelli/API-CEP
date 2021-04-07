@@ -6,19 +6,18 @@ app = FastAPI()
 
 
 @app.get("/cep/{cep_id}")
-def read_item(cep_id: int):
+def read_cep(cep_id: int):
 
     with open('myfile.json') as f:
         endereco = json.load(f) 
     endereco = dict(endereco) 
 
     for end in endereco.values():
-        for key, item in end.items():
-                
-            if item == cep_id:   
+                        
+        if end["CEP"] == cep_id:   
              
-                return {"CEP": item, "Endereço": end["Rua"], "Numero": end["Numero"], 
-                        "Complemento": end["Complemento"]}
+            return {"CEP": end["CEP"], "Endereço": end["Rua"], "Numero": end["Numero"], 
+                    "Complemento": end["Complemento"]}
             
-    return {"CEP não enconrado": cep_id}
+    return {"CEP não enconrado": cep_id} 
       
