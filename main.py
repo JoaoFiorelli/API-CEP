@@ -18,5 +18,4 @@ def read_cep(cep_id: int):
             return {"CEP": end["CEP"], "Endereço": end["Rua"], "Numero": end["Numero"], 
                     "Complemento": end["Complemento"]}
             
-    return {"CEP não enconrado": cep_id} 
-      
+    return "CEP não enconrado"      
