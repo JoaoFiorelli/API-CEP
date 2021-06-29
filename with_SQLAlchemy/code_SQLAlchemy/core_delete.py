@@ -1,5 +1,5 @@
 from sqlalchemy import delete
-from core import endereco_table, engine
+from core_test import endereco_table, engine
 
 conn = engine.connect()
 

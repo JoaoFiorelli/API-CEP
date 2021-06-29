@@ -1,5 +1,5 @@
-import json 
 from fastapi import FastAPI
+from buscaCEP import list_endereco
 
 app = FastAPI()
 
@@ -18,15 +18,13 @@ def read_cep(cep_id):
 
     if status == 0: 
 
-        return "Digite um CEP válido"
+        return {"Erro": "Digite um CEP válido"}
 
     else:
 
-        with open('myfile.json') as f:
-            endereco = json.load(f) 
-        endereco = dict(endereco) 
+        endereco = list_endereco()
 
-        for end in endereco.values():
+        for end in endereco:
                         
             if end["CEP"] == cep_id:   
              
@@ -42,7 +40,7 @@ def str_or_not(cep_id):
         if cep_id.isnumeric() == True:
             return read_cep(int(cep_id))
         else:
-            return "Entre com um valor numérico"
+            return {"Erro": "Entre com um valor numérico"}
 
     if type(cep_id) == int:
         return read_cep(cep_id)

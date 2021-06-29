@@ -1,5 +1,5 @@
 from sqlalchemy import update
-from core import endereco_table, engine
+from core_test import endereco_table, engine
 
 conn = engine.connect()
 
