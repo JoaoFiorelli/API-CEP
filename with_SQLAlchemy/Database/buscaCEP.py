@@ -1,11 +1,12 @@
 from sqlalchemy import select
-from core import endereco_table, engine
+from Database import core
+#from core import endereco_table, engine
 
 def list_endereco():
 
-    conn = engine.connect()
+    conn = core.engine.connect()
 
-    sel = select(endereco_table)
+    sel = select(core.endereco_table)
     result = list(conn.execute(sel))
 
     return result

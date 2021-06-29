@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from buscaCEP import list_endereco
+from Database import buscaCEP
 
 app = FastAPI()
 
@@ -22,7 +22,7 @@ def read_cep(cep_id):
 
     else:
 
-        endereco = list_endereco()
+        endereco = buscaCEP.list_endereco()
 
         for end in endereco:
                         
