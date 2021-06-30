@@ -17,7 +17,6 @@ def read_cep(cep_id):
     status = validation_len(cep_id) 
 
     if status == 0: 
-
         return {"Erro": "Digite um CEP válido"}
 
     else:
@@ -25,16 +24,12 @@ def read_cep(cep_id):
         endereco = buscaCEP.list_endereco()
 
         for end in endereco:
-
-            print("OK")
-            print(end)
                         
-            if end["CEP"] == cep_id:   
-             
+            if end[1] == cep_id:                
                 return {"CEP": end["CEP"], "Endereço": end["Rua"], "Numero": end["Numero"], 
                         "Complemento": end["Complemento"]}
             
-        return "CEP não enconrado"      
+        return {"Erro": "CEP não enconrado"}      
 
 @app.get("/cep/{cep_id}")
 def str_or_not(cep_id):

@@ -4,19 +4,11 @@ from main import app
 
 client = TestClient(app)
 
-def test_main_status_code():
-    response = client.get("/cep/{cep_id}")
-
-    assert response.status_code == 200
-
-def test_main_response_string():
-    response = client.get("/cep/string")
-
-    assert response.json() == {"Erro": "Entre com um valor numérico"}
-
 @pytest.mark.parametrize("cep,resultado", [
     ("36245965", {"CEP":36245965,"Endereço":"Machado de assis","Numero":364,"Complemento":"Terreo"}),
-    ("3624454574", {"Erro": "Digite um CEP válido"})
+    ("3624454574", {"Erro": "Digite um CEP válido"}),
+    ("string", {"Erro": "Entre com um valor numérico"}),
+    ("14211947", {"Erro": "CEP não enconrado"})
 ])
 def test_main_response_json(cep, resultado):
     endpoint = f"/cep/{cep}"

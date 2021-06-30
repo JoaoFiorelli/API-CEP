@@ -1,5 +1,5 @@
 from sqlalchemy import select
-from core import endereco_table, engine
+from .core import endereco_table, engine
 
 def list_endereco():
 
