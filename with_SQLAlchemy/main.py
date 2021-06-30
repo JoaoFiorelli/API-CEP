@@ -14,7 +14,7 @@ def validation_len(cep_id):
 
 def read_cep(cep_id):
 
-    status = validation_len(cep_id)  
+    status = validation_len(cep_id) 
 
     if status == 0: 
 
@@ -25,6 +25,9 @@ def read_cep(cep_id):
         endereco = buscaCEP.list_endereco()
 
         for end in endereco:
+
+            print("OK")
+            print(end)
                         
             if end["CEP"] == cep_id:   
              

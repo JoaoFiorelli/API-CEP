@@ -1,17 +1,16 @@
 from sqlalchemy import select
-from Database import core
-#from core import endereco_table, engine
+from core import endereco_table, engine
 
 def list_endereco():
 
-    conn = core.engine.connect()
+    conn = engine.connect()
 
-    sel = select(core.endereco_table)
+    sel = select(endereco_table)
     result = list(conn.execute(sel))
 
     return result
 
-# endereco = list_endereco()
-# for end in endereco:
-#     print(end)
-#     print(end["CEP"])
+#endereco = list_endereco()
+#for end in endereco:
+#    print(end)
+#    print(end["CEP"])
